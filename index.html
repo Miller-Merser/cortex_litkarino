@@ -380,6 +380,142 @@
         .footer .copy span {
             color: rgba(255, 255, 255, 0.3);
         }
+        /* ================================================================
+   GAMES GRID
+   ================================================================ */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 1.1rem;
+    position: relative;
+    transition: border-color 0.25s, transform 0.25s;
+    display: flex;
+    flex-direction: column;
+    word-break: break-word;
+}
+
+.game-card:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+    transform: translateY(-3px);
+}
+
+.game-status {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.status-dev {
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.status-creation {
+    background: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+.game-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.game-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.2rem;
+}
+
+.game-card h3 .highlight {
+    background: linear-gradient(135deg, #8b5cf6, #fb923c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-genre {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.5rem;
+}
+
+.game-card p {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.game-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.7rem 0;
+    flex: 1;
+}
+
+.game-card ul li {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+    margin-bottom: 0.15rem;
+}
+
+.game-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #8b5cf6;
+    font-weight: 700;
+}
+
+.game-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.35);
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    .game-card h3 {
+        font-size: 1rem;
+    }
+    .game-card p,
+    .game-card ul li {
+        font-size: 0.8rem;
+    }
+    .game-status {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.5rem;
+    }
+}
 
         /* ================================================================
            RESPONSIVE
@@ -467,7 +603,7 @@
         <p>Создаём игры, симуляторы и интерактивные 3D-миры.</p>
         
         <div class="notice">
-            <strong>⚡ ТЕХНИЧЕСКИЙ ПРОТОКОЛ:</strong> Текущие текстуры зданий в MVP являются временными (заглушками). Текущий фасад используется исключительно для обкатки развёрток и тримеш-коллизий в Godot. Глобальный ретекстуринг и замена ассетов на финальные высокодетализированные текстуры запланированы и будут полностью реализованы до <span class="date">31.05.2027</span>.
+            <strong>⚡ ТЕХНИЧЕСКИЙ ПРОТОКОЛ:</strong>В проекте Cortex: Litkarino Текущие текстуры зданий в MVP являются временными (заглушками). Текущий фасад используется исключительно для обкатки развёрток и тримеш-коллизий в Godot. Глобальный ретекстуринг и замена ассетов на финальные высокодетализированные текстуры запланированы и будут полностью реализованы до <span class="date">31.05.2027</span>.
         </div>
     </section>
 
@@ -534,8 +670,8 @@
 
             <div class="highlight-box release">
                 <div class="label">Релиз</div>
-                <div class="value">Конец 2026 года</div>
-                <div class="desc">Альфа-тестирование запланировано на осень 2026</div>
+                <div class="value">Осень 2027 года</div>
+                <div class="desc">Альфа-тестирование запланировано на лето 2027</div>
             </div>
 
             <p style="margin-top: 0.5rem;">
@@ -548,6 +684,43 @@
                 <li>Локальная атмосфера, диалоги и пасхалки</li>
             </ul>
         </div>
+
+         <!-- Игра 2: Fly Simulator -->
+        <div class="game-card">
+            <div class="game-status status-dev">🟣 В разработке</div>
+            <div class="game-icon">✈️</div>
+            <h3>Cortex: <span class="highlight">Fly Simulator</span></h3>
+            <div class="game-genre">Многоролевой симулятор авиации</div>
+            <p>9 ролей — от пилота и диспетчера до пограничника. 8 реальных 3D-аэропортов с интерьерами.</p>
+            <ul>
+                <li>Роли: пилот, бортпроводник, пассажир, диспетчер, САБ и др.</li>
+                <li>Аэропорты: Шереметьево, Внуково, Домодедово, Пулково, Батуми, Тбилиси и др.</li>
+                <li>Самолёты: Airbus A319–321, A350, Boeing 777-300ER, 737-800, Cessna 172</li>
+            </ul>
+            <div class="game-meta">
+                <span>💻 PC</span>
+                <span>📅 До 2027</span>
+            </div>
+        </div>
+
+        <!-- Игра 3: CortexRP | Love -->
+        <div class="game-card">
+            <div class="game-status status-creation">🟢 Создание</div>
+            <div class="game-icon">❤️</div>
+            <h3>CortexRP | <span class="highlight">Love</span></h3>
+            <div class="game-genre">SA-MP RP сервер</div>
+            <p>Ролевой сервер со всеми организациями, уникальной системой отношений и RP-авиацией.</p>
+            <ul>
+                <li>Все организации: гос. структуры, мафии, банды</li>
+                <li>Уникальная система отношений</li>
+                <li>RP-авиация</li>
+            </ul>
+            <div class="game-meta">
+                <span>💻 SA-MP / PC</span>
+                <span>📅 До февраля 2027</span>
+            </div>
+        </div>
+
 
         <!-- ========================================================== -->
         <!--  СЕРВИСЫ РАЗРАБОТКИ                                        -->
@@ -579,6 +752,21 @@
                     <strong style="color: #f1f5f9;">MakeHuman</strong> — инструмент для 
                     быстрого создания 3D-моделей людей. Используется для генерации NPC 
                     и проработки массовки в открытом мире.
+                </li>
+                                <li>
+                    <strong style="color: #f1f5f9;">MTA: SA Map Editor</strong> — среда для 
+                    создания и редактирования карт и локаций. Используется для проектирования 
+                    окружения RP-сервера CortexRP | Love и расстановки объектов.
+                </li>
+                <li>
+                    <strong style="color: #f1f5f9;">Pawno</strong> — компилятор и редактор 
+                    скриптов на языке Pawn. Основной инструмент для написания игровой логики, 
+                    систем организаций и механик RP-сервера на SA-MP.
+                </li>
+                <li>
+                    <strong style="color: #f1f5f9;">Sanny Builder</strong> — редактор скриптов 
+                    для GTA: San Andreas. Используется для создания миссий, скриптовых сцен 
+                    и дополнительной логики в рамках проекта CortexRP.
                 </li>
             </ul>
             <div class="btn-group">
